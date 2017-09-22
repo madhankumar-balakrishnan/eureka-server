@@ -1,5 +1,5 @@
 node {
-	echo ' Microservice CI/CD Pipeline - Eureka Server ' 
+	echo 'Microservice CI/CD Pipeline - Eureka Server' 
 	
     properties([pipelineTriggers([githubPush()])])
 	
