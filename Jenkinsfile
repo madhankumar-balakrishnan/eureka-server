@@ -22,14 +22,14 @@ node {
   
    stage ('Build Docker Images') {
     docker.withRegistry('https://index.docker.io/v1/','docker-hub-credentials') {
-      def app = docker.build("madhankumardocker/eureka-server:${commit}")
+      def app = docker.build("docker.io/madhankumardocker/eureka-server:${commit}")
     }
    }
   
     stage ('Push Docker tags') {
       docker.withRegistry('https://index.docker.io/v1/','docker-hub-credentials') {
-        app = docker.image("madhankumardocker/eureka-server:${commit}")
-        app.push("${env.BUILD_NUMBER}")
+        app = docker.image("docker.io/madhankumardocker/eureka-server:${commit}")
+        app.push("${commit}")
       }
   }
 }
