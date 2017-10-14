@@ -10,7 +10,7 @@ node {
 		checkout scm
 		gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
         commit = gitCommit.take(6)
-		echo 'commit value: #{commit}'
+		echo 'commit value: ${commit}'
 	}
 	
 	stage('Build Java') {

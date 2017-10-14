@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:8
 VOLUME /tmp
 ADD eureka-server-0.0.1-SNAPSHOT.jar eureka-server.jar
 RUN bash -c 'touch /eureka-server.jar'
