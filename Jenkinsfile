@@ -5,7 +5,7 @@ node {
     		
     properties([pipelineTriggers([githubPush()])])
     
-	docker.image('maven:3.3.3-jdk-8').inside {
+	docker.image('maven:3.3.9-jdk-8').inside {
 	stage ('Pull Repository') {
 		checkout scm
 		gitCommit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
