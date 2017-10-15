@@ -1,7 +1,7 @@
 node {
 	echo ' Microservice CI/CD Pipeline - Eureka Server ' 
 	echo "#################### Initiating ${env.BRANCH_NAME} Build ####################"
-    def commit
+    def imageVersion = 'develop'
     		
     properties([pipelineTriggers([githubPush()])])
     
@@ -29,7 +29,7 @@ node {
     stage ('Push Docker tags') {
       docker.withRegistry('https://index.docker.io/v1/','docker-hub-credentials') {
         app = docker.image("docker.io/madhankumardocker/eureka-server:${commit}")
-        app.push("${commit}")
+        app.push("${imageVersion}")
       }
   }
 }
